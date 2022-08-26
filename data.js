@@ -28,7 +28,7 @@ const userinfo = [{
         {semister:'1st',year:'June 2012',CGPA:'8.5'},
         {semister:'2nd',year:'October 2012',CGPA:'9.0'},
         {semister:'3rd',year:'June 2013',CGPA:'9.2'},
-        {semister:'4th',year:'December 2013',CGPA:'9.5'}
+        {semister:'4th',year:'December 2013',CGPA:'9.6'}
     ]
 }]
 module.exports = userinfo;
