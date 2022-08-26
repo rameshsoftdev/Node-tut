@@ -20,7 +20,7 @@ const filePath = `${dirPath}/apple.txt`;
   })
  */
 
-// Delete File
+// Deleting File 
 fs.unlinkSync(`${dirPath}/shreedevi.txt`) ; 
 
 
