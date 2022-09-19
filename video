@@ -1,9 +1,0 @@
-const mongoose = require('mongoose');
-const videoSchema= mongoose.Schema({
-    name:String,
-    size:Number,
-    created_by:String,
-    location:String
-});
-
-module.exports= mongoose.model("videos",videoSchema);
