@@ -1,30 +1,23 @@
-const express = require('express');
-const EventEmitter = require('events');
-const event = new EventEmitter();
-const app = express();
-/* 
-const os = require('os');
-console.log(os.arch());
-console.log(os.freemem()/(1024*1024*1024));
-console.log(os.totalmem()/(1024*1024*1024));
-console.log(os.hostname());
-console.log(os.platform());
-console.log(os.userInfo());
-*/
-let count = 0;
-event.on('eventAPI',()=>{
-    count++;
-    console.log('count',count);
-})
+const { createConnection } = require('mongoose');
+const mysql = require('mysql');
 
-app.get('/',(req,resp)=>{
-   resp.send('root');
-   event.emit('eventAPI');
+const conn = mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"usrc_db"
+});
+conn.connect((err)=>{
+    if(err){
+     console.log('Error',err.sqlMessage);
+     return false;
+    }
 });
 
-app.get('/test',(req,resp)=>{
-    resp.send('test');
-    event.emit('eventAPI');
- });
-
-app.listen(5000);
+conn.query('SELECT usr_id,usr_name FROM usr_login limit 0,4',(err,result)=>{
+    if(err){
+        console.log('Error',err.sqlMessage);
+    }else{
+        console.log('result',result);
+    }
+})
